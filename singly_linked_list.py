@@ -1,4 +1,4 @@
-class Node:
+class SLL_Node:
     '''
     Used for creating the nodes used in a singly linked list.
     '''
@@ -28,7 +28,7 @@ class SLL:
         """
         Adds a value to the end of the linked list.
         """
-        new_node = Node(val)
+        new_node = SLL_Node(val)
         if not self.head:
             self.head = new_node
             self.tail = new_node
@@ -51,7 +51,6 @@ class SLL:
         """
         Returns a simple list/array of values in the linked list.
         """
-        # Rename unlink?
         values = []
         node = self.head
 
@@ -99,7 +98,7 @@ class SLL:
             prev = current
             current = current.next
 
-        prev.next = Node(val, current)
+        prev.next = SLL_Node(val, current)
         self.length += 1
         return self.length
 
@@ -147,10 +146,3 @@ class SLL:
       arg_list.sort()
       new_list = SLL().add_multiple(*arg_list)
       return new_list
-
-my_list = SLL()
-
-my_list.add_multiple(34,46,58,19,5,29,35)
-my_list = my_list.sort()
-print(my_list.to_list())
-# print(my_list.length)
