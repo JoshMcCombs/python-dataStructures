@@ -8,6 +8,12 @@ class BST_Node:
     self.right = None
     self.count = 1
 
+  def __repr__(self):
+    '''
+    Creates printable representation of a node.
+    '''
+    return f"val: {self.val}, count: {self.count}"
+
 class BST:
   '''
   Implimentation of a binary search tree.
@@ -40,3 +46,32 @@ class BST:
           else:
             current_node.right = new_node
             return
+
+  def add_multiple(self, *args):
+    """
+    Accepts multiple arguments to add to tree.
+    """
+    for arg in args:
+      self.add(arg)
+  
+  def search(self, val):
+    '''
+    Returns the node that contains the argument else false.
+    '''
+    if not self.root:
+      return None
+    else:
+      current_node = self.root
+      while True:
+        if val == current_node.val:
+          return current_node
+        elif val < current_node.val:
+          if not current_node.left:
+            return False
+          else:
+            current_node = current_node.left
+        else:
+          if not current_node.right:
+            return False
+          else:
+            current_node = current_node.right
