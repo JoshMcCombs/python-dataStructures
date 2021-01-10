@@ -10,7 +10,7 @@ class BST_Node:
 
   def __repr__(self):
     '''
-    Creates printable representation of a node.
+    Allows for printable representation of a node.
     '''
     return f"val: {self.val}, count: {self.count}"
 
