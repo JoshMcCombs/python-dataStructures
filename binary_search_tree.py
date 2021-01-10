@@ -95,6 +95,45 @@ class BST:
               node_list.append(current.right)
       return travel_order
 
-tree = BST()
-tree.add_multiple(10,6,15,3,8,20)
-print(tree.BreadthFirstTraverse())
+  def DFS_PreOrder(self):
+    '''
+    Traverse the list follwing the left edges first.
+    '''
+    travel_order = []
+    def helper(node):
+      travel_order.append(node.val)
+      if node.left:
+        helper(node.left)
+      if node.right:
+        helper(node.right)
+    helper(self.root)
+    return travel_order
+
+  def DFS_PostOrder(self):
+    '''
+    traverses from deepest left node to sibling right before
+    parent node.
+    '''
+    travel_order = []
+    def helper(node):
+      if node.left:
+        helper(node.left)
+      if node.right:
+        helper(node.right)
+      travel_order.append(node.val)
+    helper(self.root)
+    return travel_order
+
+  def DFS_InOrder(self):
+    '''
+    Traverses the tree in order of its values
+    '''
+    travel_order = []
+    def helper(node):
+      if node.left:
+        helper(node.left)
+      travel_order.append(node.val)
+      if node.right:
+        helper(node.right)
+    helper(self.root)
+    return travel_order
