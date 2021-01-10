@@ -108,3 +108,32 @@ class BST:
         helper(node.right)
     helper(self.root)
     return travel_order
+
+  def DFS_PostOrder(self):
+    '''
+    traverses from deepest left node to sibling right before
+    parent node.
+    '''
+    travel_order = []
+    def helper(node):
+      if node.left:
+        helper(node.left)
+      if node.right:
+        helper(node.right)
+      travel_order.append(node.val)
+    helper(self.root)
+    return travel_order
+
+  def DFS_InOrder(self):
+    '''
+    Traverses the tree in order of its values
+    '''
+    travel_order = []
+    def helper(node):
+      if node.left:
+        helper(node.left)
+      travel_order.append(node.val)
+      if node.right:
+        helper(node.right)
+    helper(self.root)
+    return travel_order
